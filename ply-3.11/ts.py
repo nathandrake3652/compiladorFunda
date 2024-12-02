@@ -1,7 +1,12 @@
+import copy
 from enum import Enum
 
 class TIPO_DATO(Enum) :
-    NUMERO = 1
+    NUMERO = 'numero'
+    FUNCION = 'funcion'
+    LISTA = 'lista'
+    TEXTO = 'texto'
+    BOOLEANO = 'booleano'
 
 class Simbolo() :
     'Esta clase representa un simbolo dentro de nuestra tabla de simbolos'
@@ -14,13 +19,16 @@ class Simbolo() :
 class TablaDeSimbolos() :
     'Esta clase representa la tabla de simbolos'
 
-    def __init__(self, simbolos = {}) :
-        self.simbolos = simbolos
+    def __init__(self, simbolos = {}, deepcopy = False) :
+        if deepcopy:
+            self.simbolos = copy.deepcopy(simbolos)
+        else:
+            self.simbolos = simbolos
 
     def agregar(self, simbolo) :
         self.simbolos[simbolo.id] = simbolo
     
-    def obtener(self, id) :
+    def obtener(self, id : str) -> Simbolo:
         if not id in self.simbolos :
             print('Error: variable ', id, ' no definida.')
 

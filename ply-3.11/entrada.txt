@@ -1,6 +1,32 @@
-//Se imprime el encabezado
+
+def factorial(n) {
+	if(n == 0) {
+		return 1;
+	}
+	return factorial(n-1) * n;
+}
+
+def fibonnaci(n) {
+	if(n < 3) {
+		return 1;
+	}
+	return fibonnaci(n-2) + fibonnaci(n-1);
+}
+
+imprimir(factorial(4));
+imprimir("factorial de 4: " & factorial(4));
+imprimir("fibonnaci de 8: " & fibonnaci(8));
+
+
+
+
+
+// Se imprime el encabezado
 imprimir("Tablas de" & " multiplicar");
 
+numero o;
+o = 2;
+imprimir("Valor de o: " & o);
 //Se declara la variable a, de tipo numero
 numero a;
 //Se asigna a la variable a el valor 0
@@ -11,12 +37,7 @@ numero c;
 c=1;
 //Se imprime un separador
 imprimir("----------------");
-/**
- * Se imprimen las tablas del 1 al 5 y 
- * para cada tabla, se imprimen los resultados
- * desde el uno hasta el 5, esto se hace con 
- * dos ciclos while anidados. 
- **/
+
 mientras(a<4+c){	
 	a=a+1;
 	numero b;
@@ -27,24 +48,14 @@ mientras(a<4+c){
 	}
 	imprimir("----------------");
 }
-
 //Se asigna a la variable a el valor de 11
 a=11;
-/**
- * La variable b ya había sido declarada pero 
- * dentro del ámbito del primer ciclo while, 
- * entonces no existe en este ámbito por lo que 
- * debe declararse.
- **/
+
 numero b;
 //Se asigna valor de 12 a b y valor de 13 a c
 b=12;
 c=13;
-/**
- * Se evalua si el valor de la variable a es 
- * mayor que 10, si el b es mayor que 11 y si
- * el de c es mayor que 12. 
- **/
+
 If(a>10){
 	imprimir("a es mayor que 10.");
 	if(b>11){
@@ -56,3 +67,20 @@ If(a>10){
 }else{
 	imprimir("a es menor o igual que 10.");
 }
+
+lista array;
+array = [1, 2, 3, 4, [1, 2, 3, 4, 5, [1, 2, 3]]];
+numero arr1 = array[1];
+
+numero index = 0;
+mientras(index < 5) {
+	imprimir(array[index]);
+	index = index + 1;
+}
+
+imprimir("array: " & array);
+
+
+array = append(array, 1);
+del array[4];
+imprimir(array);
