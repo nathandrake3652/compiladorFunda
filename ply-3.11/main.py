@@ -10,9 +10,8 @@ f = open("entrada.txt", "r", encoding="utf-8")
 input = f.read()
 instrucciones = g.parse(input)
 
-instrucciones = g.parse(input)
-ts_global = TS.TablaDeSimbolos()
 
+ts_global = TS.TablaDeSimbolos()
 Instruccion.procesar_instrucciones(instrucciones, ts_global)
 
 

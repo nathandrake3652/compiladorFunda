@@ -11,6 +11,10 @@ class Instruccion(ABC):
 
     @staticmethod
     def procesar_instrucciones(instrucciones, ts):
+        if instrucciones is None:
+            return 
+        
+        
         for instr in instrucciones:
             if not isinstance(instr, Instruccion):
                 raise TypeError('Debería de ser una instrucción')
@@ -211,11 +215,12 @@ class LlamadaFuncion(Instruccion, Expresion):
             raise SyntaxError('Error: El número de argumentos no coincide')
         
         ts_local = TS.TablaDeSimbolos(ts.simbolos, deepcopy=True)
-
-        for i in range(len(funcion.lista_parametros)):
+        i = 0
+        for value, type in funcion.lista_parametros:
             parametro_valor = (self.parametros[i]).resolver_expresion(ts)
-            simbolo_parametro = TS.Simbolo(funcion.lista_parametros[i], TS.TIPO_DATO.TEXTO, parametro_valor)
+            simbolo_parametro = TS.Simbolo(value, type, parametro_valor)
             ts_local.agregar(simbolo_parametro)
+            i += 1
         
         resultado = Instruccion.procesar_instrucciones(funcion.instrucciones, ts_local)
         return resultado

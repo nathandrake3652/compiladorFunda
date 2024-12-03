@@ -1,4 +1,5 @@
 import logging
+
 logging.basicConfig(
     level = logging.DEBUG,
     filename = "parselog.txt",
@@ -198,7 +199,7 @@ def p_tipo_def(t):
 
 def p_tipo_def_id(t):
     '''tipo_def : ID'''
-    raise TypeError('No existe el tipo: ', t[1]) # Puede causar errores
+    raise TypeError(f'No existe el tipo: {t[1]}') # Puede causar errores
 
 def p_instruccion_definicion(t) :
     '''definicion_instr   : tipo_def ID PTCOMA
@@ -317,12 +318,12 @@ def p_lista_parametros(t):
         t[0] = []
 
 def p_parametros(t):
-    '''parametros : parametros COMA ID
-                  | ID'''
-    if len(t) == 2:
-        t[0] = [t[1]]
+    '''parametros : parametros COMA tipo_def ID
+                  | tipo_def ID'''
+    if len(t) == 3:
+        t[0] = [(t[2], t[1])]
     else:
-        t[0] = t[1] + [t[3]]
+        t[0] = t[1] + [(t[4], t[3])]
 
 
 
@@ -388,8 +389,13 @@ def p_del_lista(p):
 #Cristian
 
 def p_error(t):
+    if t is None:
+        return
     print(t)
-    print("Error sintáctico en '%s'" % t.value)
+    raise SyntaxError("Error sintáctico en '%s'" % t.value)
+
+def t_eof(t):
+    return None
 
 import ply.yacc as yacc
 parser = yacc.yacc(debug=True,debuglog=log)

@@ -1,12 +1,21 @@
 
-def factorial(n) {
+def max(numero a, numero b) {
+	return a > b;
+}
+
+
+imprimir(max(5, 6));
+
+
+/*
+def factorial(numero n) {
 	if(n == 0) {
 		return 1;
 	}
 	return factorial(n-1) * n;
 }
 
-def fibonnaci(n) {
+def fibonnaci(numero n) {
 	if(n < 3) {
 		return 1;
 	}
@@ -84,3 +93,5 @@ imprimir("array: " & array);
 array = append(array, 1);
 del array[4];
 imprimir(array);
+
+*/
