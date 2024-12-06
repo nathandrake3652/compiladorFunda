@@ -19,8 +19,8 @@ reservadas = {
     'mientras' : 'MIENTRAS',
     'if' : 'IF',
     'else' : 'ELSE',
-    'def' : 'DEF', #Cristian
-    'return' : 'RETURN', #Cristian
+    'def' : 'DEF', 
+    'return' : 'RETURN', 
     'append' : 'APPEND',
     'del' : 'DEL',
     'True' : 'TRUE',
@@ -28,11 +28,9 @@ reservadas = {
 }
 
 tokens  = [
-#Cambios Cristian    
     'COMA',
     'CORIZQ',
     'CORDER',
-#Cambios Cristian    
     'PTCOMA',
     'LLAVIZQ',
     'LLAVDER',
@@ -48,6 +46,9 @@ tokens  = [
     'MAYQUE',
     'IGUALQUE',
     'NIGUALQUE',
+    'OR',
+    'AND',
+    'NOT',
     'DECIMAL',
     'ENTERO',
     'CADENA',
@@ -60,19 +61,22 @@ t_LLAVIZQ   = r'{'
 t_LLAVDER   = r'}'
 t_PARIZQ    = r'\('
 t_PARDER    = r'\)'
-t_IGUAL     = r'='
 t_MAS       = r'\+'
 t_MENOS     = r'-'
 t_POR       = r'\*'
 t_DIVIDIDO  = r'/'
-t_CONCAT    = r'&'
 t_MENQUE    = r'<'
 t_MAYQUE    = r'>'
 t_IGUALQUE  = r'=='
 t_NIGUALQUE = r'!='
-t_COMA = r',' #Cristian
-t_CORDER = r'\]' # cristian
-t_CORIZQ = r'\[' # Cristian
+t_OR = r'\|\|'
+t_AND = r'&&'
+t_IGUAL = r'='
+t_CONCAT = r'&'
+t_NOT = r'!'
+t_COMA = r',' 
+t_CORDER = r'\]' 
+t_CORIZQ = r'\[' 
 
 def t_DECIMAL(t):
     r'\d+\.\d+'
@@ -144,10 +148,11 @@ lexer = lex.lex(debug=True,debuglog=log)
 precedence = (
     ('left', 'COMA'),
     ('left', 'CONCAT'),
+    ('left', 'AND', 'OR'),
     ('left', 'MAYQUE', 'MENQUE', 'IGUALQUE', 'NIGUALQUE'),
     ('left', 'MAS', 'MENOS'),
     ('left', 'POR', 'DIVIDIDO'),
-    ('right', 'UMENOS'),
+    ('right', 'UMENOS', 'NOT'),
 )
 
 
@@ -286,19 +291,26 @@ def p_expresion_logica_binaria(t) :
     '''expresion_logica : expresion MAYQUE expresion
                         | expresion MENQUE expresion
                         | expresion IGUALQUE expresion
-                        | expresion NIGUALQUE expresion'''
+                        | expresion NIGUALQUE expresion
+                        | expresion OR expresion
+                        | expresion AND expresion'''
     if t[2] == '>'    : t[0] = ExpresionLogicaBinaria(t[1], t[3], OPERACION_LOGICA.MAYOR_QUE)
     elif t[2] == '<'  : t[0] = ExpresionLogicaBinaria(t[1], t[3], OPERACION_LOGICA.MENOR_QUE)
     elif t[2] == '==' : t[0] = ExpresionLogicaBinaria(t[1], t[3], OPERACION_LOGICA.IGUAL)
     elif t[2] == '!=' : t[0] = ExpresionLogicaBinaria(t[1], t[3], OPERACION_LOGICA.DIFERENTE)
+    elif t[2] == '||' : t[0] = ExpresionLogicaBinaria(t[1], t[3], OPERACION_LOGICA.OR)
+    elif t[2] == '&&' : t[0] = ExpresionLogicaBinaria(t[1], t[3], OPERACION_LOGICA.AND)
     else:
         raise SyntaxError(f'Error de sintaxis: {t}')
 
 def p_expresion_logica_unaria(t) :
     '''expresion_logica : TRUE
-                        | FALSE'''
-
-    t[0] = ExpresionLogicaUnaria(t[1])
+                        | FALSE
+                        | NOT expresion'''
+    if(len(t) == 2):
+        t[0] = ExpresionLogicaUnaria(t[1], None)
+    else:
+        t[0] = ExpresionLogicaUnaria(t[2], OPERACION_LOGICA.NOT)
 
 #Cristian
 def p_empty(t):

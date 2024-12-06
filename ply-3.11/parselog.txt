@@ -1,4 +1,4 @@
-    lex.py: 924:lex: tokens   = ['COMA', 'CORIZQ', 'CORDER', 'PTCOMA', 'LLAVIZQ', 'LLAVDER', 'PARIZQ', 'PARDER', 'IGUAL', 'MAS', 'MENOS', 'POR', 'DIVIDIDO', 'CONCAT', 'MENQUE', 'MAYQUE', 'IGUALQUE', 'NIGUALQUE', 'DECIMAL', 'ENTERO', 'CADENA', 'ID', 'LISTA', 'NUMERO', 'BOOLEANO', 'TEXTO', 'IMPRIMIR', 'MIENTRAS', 'IF', 'ELSE', 'DEF', 'RETURN', 'APPEND', 'DEL', 'TRUE', 'FALSE']
+    lex.py: 924:lex: tokens   = ['COMA', 'CORIZQ', 'CORDER', 'PTCOMA', 'LLAVIZQ', 'LLAVDER', 'PARIZQ', 'PARDER', 'IGUAL', 'MAS', 'MENOS', 'POR', 'DIVIDIDO', 'CONCAT', 'MENQUE', 'MAYQUE', 'IGUALQUE', 'NIGUALQUE', 'OR', 'AND', 'NOT', 'DECIMAL', 'ENTERO', 'CADENA', 'ID', 'LISTA', 'NUMERO', 'BOOLEANO', 'TEXTO', 'IMPRIMIR', 'MIENTRAS', 'IF', 'ELSE', 'DEF', 'RETURN', 'APPEND', 'DEL', 'TRUE', 'FALSE']
     lex.py: 925:lex: literals = ''
     lex.py: 926:lex: states   = {'INITIAL': 'inclusive'}
     lex.py: 953:lex: Adding rule t_DECIMAL -> '\d+\.\d+' (state 'INITIAL')
@@ -10,23 +10,26 @@
     lex.py: 953:lex: Adding rule t_COMENTARIO_MULTILINEA -> '/\*(.|\n)*?\*/' (state 'INITIAL')
     lex.py: 953:lex: Adding rule t_COMENTARIO_SIMPLE -> '//.*\n' (state 'INITIAL')
     lex.py: 953:lex: Adding rule t_newline -> '\n+' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_OR -> '\|\|' (state 'INITIAL')
     lex.py: 959:lex: Adding rule t_PARIZQ -> '\(' (state 'INITIAL')
     lex.py: 959:lex: Adding rule t_PARDER -> '\)' (state 'INITIAL')
     lex.py: 959:lex: Adding rule t_MAS -> '\+' (state 'INITIAL')
     lex.py: 959:lex: Adding rule t_POR -> '\*' (state 'INITIAL')
     lex.py: 959:lex: Adding rule t_IGUALQUE -> '==' (state 'INITIAL')
     lex.py: 959:lex: Adding rule t_NIGUALQUE -> '!=' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_AND -> '&&' (state 'INITIAL')
     lex.py: 959:lex: Adding rule t_CORDER -> '\]' (state 'INITIAL')
     lex.py: 959:lex: Adding rule t_CORIZQ -> '\[' (state 'INITIAL')
     lex.py: 959:lex: Adding rule t_PTCOMA -> ';' (state 'INITIAL')
     lex.py: 959:lex: Adding rule t_LLAVIZQ -> '{' (state 'INITIAL')
     lex.py: 959:lex: Adding rule t_LLAVDER -> '}' (state 'INITIAL')
-    lex.py: 959:lex: Adding rule t_IGUAL -> '=' (state 'INITIAL')
     lex.py: 959:lex: Adding rule t_MENOS -> '-' (state 'INITIAL')
     lex.py: 959:lex: Adding rule t_DIVIDIDO -> '/' (state 'INITIAL')
-    lex.py: 959:lex: Adding rule t_CONCAT -> '&' (state 'INITIAL')
     lex.py: 959:lex: Adding rule t_MENQUE -> '<' (state 'INITIAL')
     lex.py: 959:lex: Adding rule t_MAYQUE -> '>' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_IGUAL -> '=' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_CONCAT -> '&' (state 'INITIAL')
+    lex.py: 959:lex: Adding rule t_NOT -> '!' (state 'INITIAL')
     lex.py: 959:lex: Adding rule t_COMA -> ',' (state 'INITIAL')
     lex.py: 966:lex: ==== MASTER REGEXS FOLLOW ====
-    lex.py: 975:lex: state 'INITIAL' : regex[0] = '(?P<t_DECIMAL>\d+\.\d+)|(?P<t_ENTERO>\d+)|(?P<t_TRUE>True)|(?P<t_FALSE>False)|(?P<t_ID>[a-zA-Z_][a-zA-Z_0-9]*)|(?P<t_CADENA>\".*?\")|(?P<t_COMENTARIO_MULTILINEA>/\*(.|\n)*?\*/)|(?P<t_COMENTARIO_SIMPLE>//.*\n)|(?P<t_newline>\n+)|(?P<t_PARIZQ>\()|(?P<t_PARDER>\))|(?P<t_MAS>\+)|(?P<t_POR>\*)|(?P<t_IGUALQUE>==)|(?P<t_NIGUALQUE>!=)|(?P<t_CORDER>\])|(?P<t_CORIZQ>\[)|(?P<t_PTCOMA>;)|(?P<t_LLAVIZQ>{)|(?P<t_LLAVDER>})|(?P<t_IGUAL>=)|(?P<t_MENOS>-)|(?P<t_DIVIDIDO>/)|(?P<t_CONCAT>&)|(?P<t_MENQUE><)|(?P<t_MAYQUE>>)|(?P<t_COMA>,)'
+    lex.py: 975:lex: state 'INITIAL' : regex[0] = '(?P<t_DECIMAL>\d+\.\d+)|(?P<t_ENTERO>\d+)|(?P<t_TRUE>True)|(?P<t_FALSE>False)|(?P<t_ID>[a-zA-Z_][a-zA-Z_0-9]*)|(?P<t_CADENA>\".*?\")|(?P<t_COMENTARIO_MULTILINEA>/\*(.|\n)*?\*/)|(?P<t_COMENTARIO_SIMPLE>//.*\n)|(?P<t_newline>\n+)|(?P<t_OR>\|\|)|(?P<t_PARIZQ>\()|(?P<t_PARDER>\))|(?P<t_MAS>\+)|(?P<t_POR>\*)|(?P<t_IGUALQUE>==)|(?P<t_NIGUALQUE>!=)|(?P<t_AND>&&)|(?P<t_CORDER>\])|(?P<t_CORIZQ>\[)|(?P<t_PTCOMA>;)|(?P<t_LLAVIZQ>{)|(?P<t_LLAVDER>})|(?P<t_MENOS>-)|(?P<t_DIVIDIDO>/)|(?P<t_MENQUE><)|(?P<t_MAYQUE>>)|(?P<t_IGUAL>=)|(?P<t_CONCAT>&)|(?P<t_NOT>!)|(?P<t_COMA>,)'

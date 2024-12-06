@@ -15,6 +15,9 @@ class OPERACION_LOGICA(Enum) :
     MENOR_QUE = 2
     IGUAL = 3
     DIFERENTE = 4
+    OR = 5
+    AND = 6
+    NOT = 7
 
 
 class Expresion(ABC):
@@ -177,27 +180,45 @@ class ExpresionLogicaBinaria(ExpresionLogica) :
         exp1 = self.exp1.resolver_expresion(ts)
         exp2 = self.exp2.resolver_expresion(ts)
 
-        if not isinstance(exp1, (int, float)) or not isinstance(exp2, (int, float)):
-            raise TypeError("Operadores deben ser numéricos")
-
-        if self.operador == OPERACION_LOGICA.MAYOR_QUE : return exp1 > exp2
-        if self.operador == OPERACION_LOGICA.MENOR_QUE : return exp1 < exp2
-        if self.operador == OPERACION_LOGICA.IGUAL : return exp1 == exp2
-        if self.operador == OPERACION_LOGICA.DIFERENTE : return exp1 != exp2 
+        if (self.operador == OPERACION_LOGICA.AND or self.operador == OPERACION_LOGICA.OR):
+            if (not isinstance(exp1, bool)) or (not isinstance(exp2, bool)):
+                raise TypeError("Operadores deben ser de tipo booleano")
+            if self.operador == OPERACION_LOGICA.AND : return exp1 and exp2
+            if self.operador == OPERACION_LOGICA.OR : return exp1 or exp2
+            else:
+                raise TypeError('Error de tipado en resolver la expreison logica booleana')
         else:
-            raise TypeError('Error de tipado en resolver expresion logica binaria')
+            if (not isinstance(exp1, (int, float, str))) or (not isinstance(exp2, (int, float, str))):
+                raise TypeError("Operadores deben ser numéricos")
+            
+            if self.operador == OPERACION_LOGICA.MAYOR_QUE : return exp1 > exp2
+            if self.operador == OPERACION_LOGICA.MENOR_QUE : return exp1 < exp2
+            if self.operador == OPERACION_LOGICA.IGUAL : return exp1 == exp2
+            if self.operador == OPERACION_LOGICA.DIFERENTE : return exp1 != exp2 
+            else:
+                raise TypeError('Error de tipado en resolver expresion logica binaria')
 
 class ExpresionLogicaUnaria(ExpresionLogica):
     '''
         Esta clase rpresenta una expresión lógica unaria
     '''
 
-    def __init__(self, exp): # Funciona porque por ahora es o True o False, ya definido
+    def __init__(self, exp, operador): # Funciona porque por ahora es o True o False, ya definido
         self.exp = exp
+        self.operador = operador
+
+
     
 
     def resolver_expresion(self, ts):
-        return self.exp 
+        if self.operador is None:
+            return self.exp
+        else:
+            expLogica = self.exp.resolver_expresion(ts)
+
+            if not isinstance(expLogica, bool):
+                raise TypeError('Debería ser una expresión booleana')
+            return not expLogica
 
 class ExpresionLista(Expresion):
     '''

@@ -14,7 +14,6 @@ class Instruccion(ABC):
         if instrucciones is None:
             return 
         
-        
         for instr in instrucciones:
             if not isinstance(instr, Instruccion):
                 raise TypeError('Debería de ser una instrucción')
