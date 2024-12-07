@@ -47,7 +47,7 @@ Compilador Utilizando ply
 ### **Tokens Lógicos**
 | Token       | Símbolo    |
 |-------------|------------|
-| `OR`        | `||`       |
+| `OR`        | `\|\|`       |
 | `AND`       | `&&`       |
 | `NOT`       | `!`        |
 
