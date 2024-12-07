@@ -96,6 +96,19 @@ Compilador Utilizando ply
 ## Analisis Sintacticos
   se definieron el orden de operaciones booleanas y papomudas correspondientes 
 
+  ### **Orden de Precedencia**
+
+| Nivel de Precedencia | Asociatividad | Operadores                         |
+|-----------------------|---------------|-------------------------------------|
+| 1 (más bajo)          | Izquierda     | `COMA`                             |
+| 2                     | Izquierda     | `CONCAT`                           |
+| 3                     | Izquierda     | `AND`, `OR`                        |
+| 4                     | Izquierda     | `MAYQUE`, `MENQUE`, `IGUALQUE`, `NIGUALQUE` |
+| 5                     | Izquierda     | `MAS`, `MENOS`                     |
+| 6                     | Izquierda     | `POR`, `DIVIDIDO`, `MODULO`        |
+| 7 (más alto)          | Derecha       | `UMENOS`, `NOT`                    |
+
+
 ## Asignaciones
   se definieron tipos primitivos(enteros, string,etc) y complejos(listas )
   las listas tienen soporte al estar vacias y pueden ser modificadas con indices 
