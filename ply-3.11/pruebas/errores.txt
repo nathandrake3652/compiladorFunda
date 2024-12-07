@@ -17,3 +17,10 @@ def mifuncion(numero a, numero b) {
 
 
 mifuncion(10, 10); // Error: a es de tipo número
+
+def div0(numero a, numero b){ 
+    a = a/b;
+    return a;
+}
+
+//div0(10,0); // Error: no se puede dividir por 0
