@@ -7,7 +7,7 @@ Integrantes: Donovan Almendares, Francisco Astudillo, Cristian Nettle
 
 
 Compilador Utilizando ply
-
+#Analisis Lexico
 #Funciones booleanas 
   condicionales:
   if  
