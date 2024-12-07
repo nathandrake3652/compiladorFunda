@@ -1,0 +1,24 @@
+numero edad = 18;
+if (edad > 19) {
+    imprimir("Eres mayor de edad.");
+}
+
+// Uso de if-else
+numero temperatura = 25;
+if (temperatura > 30) {
+    imprimir("Hace calor.");
+} else {
+    imprimir("El clima es agradable.");
+}
+
+// Uso de if-else anidado
+numero numero_base = 7;
+if (numero_base > 0) {
+    if (numero_base % 2 == 0) {
+        imprimir("El número es positivo y par.");
+    } else {
+        imprimir("El número es positivo e impar.");
+    }
+} else {
+    imprimir("El número no es positivo.");
+}

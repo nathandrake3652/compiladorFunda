@@ -79,10 +79,8 @@ class AsignacionLista(Instruccion):
         self.exp = exp 
     
     def procesar_instruccion(self, ts):
-        print(" sads", self.accLista.id)
         val = self.exp.resolver_expresion(ts)
         lista = ts.obtener(self.accLista.id).valor
-        print(lista)
         indice = self.accLista.indice.resolver_expresion(ts)
 
         if not isinstance(indice, int):

@@ -1,7 +1,17 @@
 lista array = [1, 2, 3, 4, [5, 6, 7, 8]];
+lista arr_vacia = [];
+imprimir("lista actual: " & array);
+array[0] = -1;
+imprimir("lista con el valor indice 0 cambiado: " & array);
+
 numero i = 0;
-array[i] = -1;
 mientras(i < 5) {
     imprimir("En el indice: " & i & " el array tiene: " & array[i]);
+    arr_vacia = append(arr_vacia, i);
     i = i + 1;
 }
+
+imprimir("los indices guardados: " & arr_vacia);
+imprimir("eliminar un elemento: ");
+del array[4];
+imprimir(array);

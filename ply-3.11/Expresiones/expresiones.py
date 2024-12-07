@@ -9,6 +9,7 @@ class OPERACION_ARITMETICA(Enum) :
     MENOS = 2
     POR = 3
     DIVIDIDO = 4
+    MODULO = 5
 
 class OPERACION_LOGICA(Enum) :
     MAYOR_QUE = 1
@@ -60,7 +61,16 @@ class ExpresionBinaria(ExpresionNumerica) :
         if self.operador == OPERACION_ARITMETICA.MAS : return exp1 + exp2
         if self.operador == OPERACION_ARITMETICA.MENOS : return exp1 - exp2
         if self.operador == OPERACION_ARITMETICA.POR : return exp1 * exp2
-        if self.operador == OPERACION_ARITMETICA.DIVIDIDO : return exp1 / exp2
+        if self.operador == OPERACION_ARITMETICA.DIVIDIDO:
+            if(exp2 != 0):
+                return exp1 / exp2
+            else:
+                raise ZeroDivisionError('No se puede dividir por cero')
+        if self.operador == OPERACION_ARITMETICA.MODULO:
+            if(exp2 != 0):
+                return exp1 % exp2
+            else:
+                raise ZeroDivisionError('No se puede dividir por cero')
         else:
             raise TypeError('Error en resolver_expresion')
 

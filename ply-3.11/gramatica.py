@@ -42,6 +42,7 @@ tokens  = [
     'MENOS',
     'POR',
     'DIVIDIDO',
+    'MODULO',
     'CONCAT',
     'MENQUE',
     'MAYQUE',
@@ -66,6 +67,7 @@ t_MAS       = r'\+'
 t_MENOS     = r'-'
 t_POR       = r'\*'
 t_DIVIDIDO  = r'/'
+t_MODULO    = r'%'
 t_MENQUE    = r'<'
 t_MAYQUE    = r'>'
 t_IGUALQUE  = r'=='
@@ -152,7 +154,7 @@ precedence = (
     ('left', 'AND', 'OR'),
     ('left', 'MAYQUE', 'MENQUE', 'IGUALQUE', 'NIGUALQUE'),
     ('left', 'MAS', 'MENOS'),
-    ('left', 'POR', 'DIVIDIDO'),
+    ('left', 'POR', 'DIVIDIDO', 'MODULO'),
     ('right', 'UMENOS', 'NOT'),
 )
 
@@ -281,11 +283,13 @@ def p_expresion_binaria(t):
     '''expresion_numerica : expresion MAS expresion
                         | expresion MENOS expresion
                         | expresion POR expresion
-                        | expresion DIVIDIDO expresion'''
+                        | expresion DIVIDIDO expresion
+                        | expresion MODULO expresion'''
     if t[2] == '+'  : t[0] = ExpresionBinaria(t[1], t[3], OPERACION_ARITMETICA.MAS)
     elif t[2] == '-': t[0] = ExpresionBinaria(t[1], t[3], OPERACION_ARITMETICA.MENOS)
     elif t[2] == '*': t[0] = ExpresionBinaria(t[1], t[3], OPERACION_ARITMETICA.POR)
     elif t[2] == '/': t[0] = ExpresionBinaria(t[1], t[3], OPERACION_ARITMETICA.DIVIDIDO)
+    elif t[2] == '%': t[0] = ExpresionBinaria(t[1], t[3], OPERACION_ARITMETICA.MODULO)
 
 def p_expresion_unaria(t):
     'expresion_numerica : MENOS expresion %prec UMENOS'

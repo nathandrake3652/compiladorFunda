@@ -1,0 +1,23 @@
+// Ejemplo de ciclo mientras básico
+numero contador = 0;
+mientras (contador < 5) {
+    imprimir("El contador es: " & contador);
+    contador = contador + 1;
+}
+
+numero numero_base = 5;
+numero contador = 1;
+
+
+// Tablas de multiplicar del 1 al 10 usando ciclo for
+imprimir("Tablas de multiplicar del 1 al 10");
+for (numero base = 1; base < 11; base = base + 1;) {
+    imprimir("Tabla de: " & base);
+    for (numero i = 1; i < 11; i = i + 1;) {
+        numero resultado = base * i;
+        imprimir(base & " x " & i & " = " & resultado);
+    }
+    imprimir(""); // Línea en blanco para separar tablas
+}
+
+
