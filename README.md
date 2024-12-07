@@ -132,7 +132,24 @@ Compilador Utilizando ply
 ## Dependencias
   pip install ply
 
-## Ejecucion del compilador
-  -Python Main.py //para ejecutar el programa abriendo el archivo desde el main
-  py main.py [archivo] // para probar cada archivo 1 por 1
-    
+## **Ejecución del Compilador**
+
+### Para ejecutar el programa desde el archivo principal:
+\`\`\`bash
+python Main.py
+\`\`\`
+
+### Para probar archivos individuales:
+\`\`\`bash
+py main.py [archivo.txt]
+\`\`\`
+
+### Archivos disponibles para pruebas:
+\`\`\`plaintext
+ciclos.txt
+condicionales.txt
+errores.txt
+funciones.txt
+listas.txt
+\`\`\`
+
