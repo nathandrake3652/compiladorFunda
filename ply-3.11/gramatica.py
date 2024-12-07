@@ -24,7 +24,8 @@ reservadas = {
     'append' : 'APPEND',
     'del' : 'DEL',
     'True' : 'TRUE',
-    'False' : 'FALSE'
+    'False' : 'FALSE',
+    'for' : 'FOR'
 }
 
 tokens  = [
@@ -186,7 +187,8 @@ def p_instruccion(t) :
                         | return_instr
                         | llamada_funcion_instr
                         | append_instr
-                        | del_instr''' # Cristian
+                        | del_instr
+                        | for_instr''' # Cristian
     t[0] = t[1]
 
 
@@ -257,6 +259,11 @@ def p_id(t):
 def p_mientras_instr(t) :
     'mientras_instr     : MIENTRAS PARIZQ expresion_logica PARDER LLAVIZQ instrucciones LLAVDER'
     t[0] =While(t[3], t[6])
+
+def p_for_instr(t):
+    'for_instr : FOR PARIZQ definicion_instr expresion_logica PTCOMA asignacion_instr PARDER LLAVIZQ instrucciones LLAVDER'
+    t[0] = For(t[3], t[4], t[6], t[9])
+
 
 def p_if_instr(t) :
     'if_instr           : IF PARIZQ expresion_logica PARDER LLAVIZQ instrucciones LLAVDER'

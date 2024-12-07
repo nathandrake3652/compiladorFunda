@@ -97,6 +97,31 @@ class While(Instruccion) : #while
             if not isinstance(val, bool):
                 raise TypeError('El argumento del while debe ser booleano')
 
+class For(Instruccion):
+    '''
+    Esta clase representa la instrucción for.
+    La instrucción for recibe una definición de la variable, una condición y una asignación.
+    '''
+    def __init__(self, definicion, condicion, asignacion:Asignacion, instrucciones = []):
+        self.definicion = definicion
+        self.condicion = condicion
+        self.asignacion = asignacion
+        self.instrucciones = instrucciones
+    
+    def procesar_instruccion(self, ts):
+        # Procesar la definición de la variable
+        self.definicion.procesar_instruccion(ts)
+        
+        while self.condicion.resolver_expresion(ts):
+            # Ejecutar las instrucciones del cuerpo del bucle
+            ts_local = TS.TablaDeSimbolos(ts.simbolos)
+            resultado = Instruccion.procesar_instrucciones(self.instrucciones, ts_local)
+            if resultado is not None:
+                return resultado
+            
+            # Procesar la asignación
+            self.asignacion.procesar_instruccion(ts)
+
 
 class If(Instruccion) : 
     '''
