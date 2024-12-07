@@ -133,17 +133,11 @@ Compilador Utilizando ply
   pip install ply
 
 ## **Ejecución del Compilador**
-
-### Para ejecutar el programa desde el archivo principal:
-```cmd
-python main.py
-```
-
-### Para probar archivos individuales:
+Debes estar ubicado en el directorio `ply-3.11` y ejecutar el siguiente comando:
+### Para ejecutar el programa desde el directorio `ply-3.11`:
 ```cmd
 py main.py [archivo.txt]
 ```
-
 ### Archivos disponibles para pruebas:
 ```plaintext
 ciclos.txt
