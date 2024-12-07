@@ -2,7 +2,10 @@
 
 Proyecto Compilador - Piton1.1
 
-Integrantes: Donovan Almendares, Francisco Astudillo, Cristian Nettle
+## Integrantes: 
+    - Donovan Almendares
+    - Francisco Astudillo 
+    - Cristian Nettle
 
 
 #Descripcion De gramatica
