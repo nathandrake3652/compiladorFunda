@@ -34,7 +34,6 @@ Compilador Utilizando ply
 | `MENOS`     | `-`        |
 | `POR`       | `*`        |
 | `DIVIDIDO`  | `/`        |
-| `CONCAT`    | `&`        |
 | `MENQUE`    | `<`        |
 | `MAYQUE`    | `>`        |
 | `IGUALQUE`  | `==`       |
@@ -65,6 +64,7 @@ Compilador Utilizando ply
 | `PARIZQ`    | `(`        |
 | `PARDER`    | `)`        |
 | `IGUAL`     | `=`        |
+| `CONCAT`    | `&`        |
 | `CADENA`    | *(cadena de texto)* |
 | `ID`        | *(identificador)*   |
 
