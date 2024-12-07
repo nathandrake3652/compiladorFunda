@@ -111,6 +111,22 @@ Compilador Utilizando ply
 | 7 (más alto)          | Derecha       | `UMENOS`, `NOT`                    |
 
 
+### **Producción del Ciclo For**
+
+El ciclo `for` permite iterar sobre un rango de valores definido por una inicialización, una condición, y una actualización. A continuación, se presenta la producción correspondiente:
+
+```python
+def p_for_instr(t):
+    '''for_instr : FOR PARIZQ definicion_instr expresion_logica PTCOMA asignacion_instr PARDER LLAVIZQ instrucciones LLAVDER'''
+    t[0] = For(t[3], t[4], t[6], t[9])
+```
+Ejemplo:
+```
+for (numero i = 0; i < 10; i = i + 1;) {
+    imprimir("Valor de i: " & i);
+}
+```
+
 ## Asignaciones
   se definieron tipos primitivos(enteros, string,etc) y complejos(listas )
   las listas tienen soporte al estar vacias y pueden ser modificadas con indices 
