@@ -16,21 +16,58 @@ Compilador Utilizando ply
     if  
     else 
     ciclos:
-    while \rightarrow mientras
+    while → mientras
     for
     if else
 
 ## Tipos de datos 
-    int  → Numero
-    String  → Texto 
-    bool  → Booleano 
-    array  → Lista
-
+    int  → numero
+    String  → nexto 
+    bool  → booleano 
+    array  → lista
 
 # Tokens
-  Aritmeticos='MAS', 'MENOS', 'POR','DIVIDIDO','CONCAT', 'MENQUE','MAYQUE','IGUALQUE','NIGUALQUE','DECIMAL','ENTERO'
-  Otros= 'COMA','CORIZQ','CORDER', 'PTCOMA', 'LLAVIZQ', 'LLAVDER', 'PARIZQ', 'PARDER','IGUAL','ENTERO','CADENA','ID'
-  Logicos = 'OR','AND', 'NOT'
+### **Tokens Aritméticos**
+| Token       | Símbolo    |
+|-------------|------------|
+| `MAS`       | `+`        |
+| `MENOS`     | `-`        |
+| `POR`       | `*`        |
+| `DIVIDIDO`  | `/`        |
+| `CONCAT`    | `&`        |
+| `MENQUE`    | `<`        |
+| `MAYQUE`    | `>`        |
+| `IGUALQUE`  | `==`       |
+| `NIGUALQUE` | `!=`       |
+| `DECIMAL`   | *(número decimal)* |
+| `ENTERO`    | *(número entero)*  |
+
+---
+
+### **Tokens Lógicos**
+| Token       | Símbolo    |
+|-------------|------------|
+| `OR`        | `||`       |
+| `AND`       | `&&`       |
+| `NOT`       | `!`        |
+
+---
+
+### **Tokens Otros**
+| Token       | Símbolo    |
+|-------------|------------|
+| `COMA`      | `,`        |
+| `CORIZQ`    | `[`        |
+| `CORDER`    | `]`        |
+| `PTCOMA`    | `;`        |
+| `LLAVIZQ`   | `{`        |
+| `LLAVDER`   | `}`        |
+| `PARIZQ`    | `(`        |
+| `PARDER`    | `)`        |
+| `IGUAL`     | `=`        |
+| `CADENA`    | *(cadena de texto)* |
+| `ID`        | *(identificador)*   |
+
 
 ## Analisis Sintacticos
   se definieron el orden de operaciones booleanas y papomudas correspondientes 
