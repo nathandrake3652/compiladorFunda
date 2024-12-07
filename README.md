@@ -71,6 +71,27 @@ Compilador Utilizando ply
 | `CADENA`    | *(cadena de texto)* |
 | `ID`        | *(identificador)*   |
 
+### **Palabras Reservadas**
+
+| Palabra Clave | Token       |
+|---------------|-------------|
+| `lista`       | `LISTA`     |
+| `numero`      | `NUMERO`    |
+| `booleano`    | `BOOLEANO`  |
+| `texto`       | `TEXTO`     |
+| `imprimir`    | `IMPRIMIR`  |
+| `mientras`    | `MIENTRAS`  |
+| `if`          | `IF`        |
+| `else`        | `ELSE`      |
+| `def`         | `DEF`       |
+| `return`      | `RETURN`    |
+| `append`      | `APPEND`    |
+| `del`         | `DEL`       |
+| `True`        | `TRUE`      |
+| `False`       | `FALSE`     |
+| `for`         | `FOR`       |
+
+
 
 ## Analisis Sintacticos
   se definieron el orden de operaciones booleanas y papomudas correspondientes 
