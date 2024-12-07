@@ -5,9 +5,10 @@ Proyecto Compilador - Piton1.1
 Compilador Utilizando ply
 
 #Funciones booleanas 
-
+  condicionales:
   if  → IF
   else  →ELSE
+  ciclos:
   while  →mientras
   for  → FOR
 
