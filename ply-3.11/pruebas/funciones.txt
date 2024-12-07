@@ -1,0 +1,33 @@
+// Funciona saludar: 
+def saludar(texto nombre) {
+    imprimir("Hola " & nombre);
+}
+
+saludar("Miguel");
+
+// Definición de función
+def suma(numero a, numero b) {
+    return a + b;
+}
+imprimir("La suma es: " & suma(10, 12)); // 22
+
+// Definicion de funcion recursiva
+def factorial(numero n) {
+    if(n < 2) {
+        return 1;
+    }
+    return factorial(n-1) * n;
+}
+
+imprimir("El factorial de 6 es: " & factorial(6)); // 720
+
+
+// Función sin parámetros
+def saludo_mundo() {
+    numero local = 132;
+    imprimir("Hola mundo, parametro local: " & local);
+}
+saludo_mundo();
+
+// Llamadas anidadas
+imprimir("La suma anidada es: " & suma(5, suma(3, 2))); // 10

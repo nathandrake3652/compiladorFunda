@@ -1,3 +1,5 @@
+import os
+import sys
 from Instrucciones.Instruccion import *
 import gramatica as g
 import ts as TS
@@ -5,15 +7,31 @@ import ts as TS
 
 
 
-f = open("entrada.txt", "r", encoding="utf-8")
+def main():
 
-input = f.read()
-instrucciones = g.parse(input)
+    if len(sys.argv) != 2:
+        print("Sintaxis: py main.py [archivo]")
+        sys.exit(1)
+    
+    archivo =  "pruebas/" + sys.argv[1]
+
+    if not os.path.exists(archivo) :
+        print(f"Error: el archivo '{archivo}' no existe")
+        sys.exit(1)
+    
+
+    f = open(archivo, "r", encoding="utf-8")
+
+    input = f.read()
+    instrucciones = g.parse(input)
 
 
-ts_global = TS.TablaDeSimbolos()
-Instruccion.procesar_instrucciones(instrucciones, ts_global)
+    ts_global = TS.TablaDeSimbolos()
+    Instruccion.procesar_instrucciones(instrucciones, ts_global)
 
+
+if __name__ == "__main__":
+    main()
 
 
 '''

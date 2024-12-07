@@ -124,8 +124,8 @@ def t_COMENTARIO_MULTILINEA(t):
 
 # Comentario simple // ...
 def t_COMENTARIO_SIMPLE(t):
-    r'//.*\n'
-    t.lexer.lineno += 1
+    r'//[^\n]*'
+    pass
 
 # Caracteres ignorados
 t_ignore = " \t"
@@ -217,8 +217,12 @@ def p_instruccion_definicion(t) :
         t[0] =Definicion(t[2], t[1], t[4])
 
 def p_asignacion_instr(t) :
-    '''asignacion_instr : ID IGUAL valor_asignacion PTCOMA'''
-    t[0]=Asignacion(t[1], t[3])
+    '''asignacion_instr : ID IGUAL valor_asignacion PTCOMA
+                        | expresion_acceso_lista IGUAL valor_asignacion PTCOMA'''
+    if  not isinstance(t[1], ExpresionAccesoLista):  
+        t[0] = Asignacion(t[1], t[3])
+    else:  
+        t[0] = AsignacionLista(t[1], t[3])
 
 def p_valor_asignacion(t) :
     '''valor_asignacion : expresion'''
@@ -394,6 +398,9 @@ def p_expresion_acceso_lista(p):
     '''expresion_acceso_lista : ID CORIZQ expresion CORDER'''
 
     p[0] = ExpresionAccesoLista(p[1], p[3])
+
+
+
 
 def p_append_lista(p):
     '''append_instr : ID IGUAL APPEND PARIZQ ID COMA expresion PARDER PTCOMA'''

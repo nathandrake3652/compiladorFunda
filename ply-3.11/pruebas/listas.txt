@@ -1,0 +1,7 @@
+lista array = [1, 2, 3, 4, [5, 6, 7, 8]];
+numero i = 0;
+array[i] = -1;
+mientras(i < 5) {
+    imprimir("En el indice: " & i & " el array tiene: " & array[i]);
+    i = i + 1;
+}

@@ -70,6 +70,29 @@ class Asignacion(Instruccion) :
         from .StrategyAsignacion import ContextoAsignacion  
         contextAsig = ContextoAsignacion()
         contextAsig.procesar_asignacion(self, ts)
+
+
+class AsignacionLista(Instruccion):
+
+    def __init__(self, accLista : ExpresionAccesoLista, exp : Expresion):
+        self.accLista = accLista
+        self.exp = exp 
+    
+    def procesar_instruccion(self, ts):
+        print(" sads", self.accLista.id)
+        val = self.exp.resolver_expresion(ts)
+        lista = ts.obtener(self.accLista.id).valor
+        print(lista)
+        indice = self.accLista.indice.resolver_expresion(ts)
+
+        if not isinstance(indice, int):
+            raise TypeError("Indice debe ser número entero")
+        if isinstance(lista, list) and 0 <= indice < len(lista):
+            lista[indice] = val
+
+
+
+
         
         
 class While(Instruccion) : #while
