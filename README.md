@@ -9,14 +9,16 @@ para la gramatica del lenguaje no hubo cambios significativos salvo para las fun
 
 Compilador Utilizando ply
 # Analisis Lexico
-## Funciones booleanas 
-  condicionales:
-  if  
-  else 
-  ciclos:
-  while  →mientras
-  for
-  if else
+# Funciones booleanas 
+
+
+## condicionales:
+    if  
+    else 
+    ciclos:
+    while  →mientras
+    for
+    if else
 
 ## Tipos de datos 
     int  → Numero
