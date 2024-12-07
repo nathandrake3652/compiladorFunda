@@ -16,7 +16,7 @@ Compilador Utilizando ply
     if  
     else 
     ciclos:
-    while  →mientras
+    while \rightarrow mientras
     for
     if else
 
