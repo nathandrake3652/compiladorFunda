@@ -24,6 +24,8 @@ Compilador Utilizando ply
   Otros= 'COMA','CORIZQ','CORDER', 'PTCOMA', 'LLAVIZQ', 'LLAVDER', 'PARIZQ', 'PARDER','IGUAL','ENTERO','CADENA','ID'
   Logicos = 'OR','AND', 'NOT'
 
+  #Analisis Sintacticos
+  se definieron el orden de operaciones booleanas y papomudas correspondientes 
 
   #Asignaciones
   se definieron tipos primitivos(enteros, string,etc) y complejos(listas )
