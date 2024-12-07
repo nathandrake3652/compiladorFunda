@@ -1,0 +1,19 @@
+
+//numero a = "soy texto"; // Error : Debe ser una expresión númerica
+
+def funcionSinRetorno(numero a, numero b) {
+    imprimir("No retorna nada :)");
+    return;
+}
+
+
+// numero b = funcionSinRetorno(10, 10); // Error : La funcion no devuelve ningun valor
+
+
+def mifuncion(numero a, numero b) {
+    a = "no puedo";
+    return a;
+}
+
+
+mifuncion(10, 10); // Error: a es de tipo número

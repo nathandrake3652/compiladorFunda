@@ -31,3 +31,8 @@ saludo_mundo();
 
 // Llamadas anidadas
 imprimir("La suma anidada es: " & suma(5, suma(3, 2))); // 10
+
+// funciones en expresion logicas
+if(suma(3, 4) > suma(2, 4)) {
+    imprimir("La segunda suma es menor");
+}
