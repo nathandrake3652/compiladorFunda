@@ -1,4 +1,4 @@
-# compiladorFunda
+# CompiladorFunda
 
 Proyecto Compilador - Piton1.1
 
