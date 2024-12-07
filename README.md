@@ -37,6 +37,7 @@ Compilador Utilizando ply
 | `MENQUE`    | `<`        |
 | `MAYQUE`    | `>`        |
 | `IGUALQUE`  | `==`       |
+| `MODULO`    | `%`        | 
 | `NIGUALQUE` | `!=`       |
 | `DECIMAL`   | *(número decimal)* |
 | `ENTERO`    | *(número entero)*  |
