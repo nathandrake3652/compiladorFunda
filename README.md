@@ -136,7 +136,7 @@ Compilador Utilizando ply
 
 ### Para ejecutar el programa desde el archivo principal:
 ```cmd
-python Main.py
+python main.py
 ```
 
 ### Para probar archivos individuales:
