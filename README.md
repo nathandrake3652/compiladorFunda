@@ -135,21 +135,21 @@ Compilador Utilizando ply
 ## **Ejecución del Compilador**
 
 ### Para ejecutar el programa desde el archivo principal:
-\`\`\`bash
+```cmd
 python Main.py
-\`\`\`
+```
 
 ### Para probar archivos individuales:
-\`\`\`bash
+```cmd
 py main.py [archivo.txt]
-\`\`\`
+```
 
 ### Archivos disponibles para pruebas:
-\`\`\`plaintext
+```plaintext
 ciclos.txt
 condicionales.txt
 errores.txt
 funciones.txt
 listas.txt
-\`\`\`
+```
 
