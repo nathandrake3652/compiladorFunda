@@ -18,7 +18,7 @@ Compilador Utilizando ply
   for
   if else
 
-  #Tipos de datos 
+## Tipos de datos 
     int  → Numero
     String  → Texto 
     bool  → Booleano 
