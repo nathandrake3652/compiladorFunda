@@ -2,15 +2,20 @@
 
 Proyecto Compilador - Piton1.1
 
+Integrantes: Donovan Almendares, Francisco Astudillo, Cristian Nettle
+
+
+
 Compilador Utilizando ply
 
 #Funciones booleanas 
   condicionales:
-  if  → IF
-  else  →ELSE
+  if  
+  else 
   ciclos:
   while  →mientras
-  for  → FOR
+  for
+  if else
 
   #Tipos de datos 
     int  → Numero
@@ -47,5 +52,10 @@ Compilador Utilizando ply
   #impresion
   se definio la funcion Imprimir la cual hace de print
   
-    
+  #Dependencias
+  pip install ply
+
+  #Ejecucion del compilador
+  -Python Main.py //para ejecutar el programa abriendo el archivo desde el main
+  py main.py [archivo] // para probar cada archivo 1 por 1
     
