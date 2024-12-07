@@ -3,11 +3,12 @@
 Proyecto Compilador - Piton1.1
 
 Integrantes: Donovan Almendares, Francisco Astudillo, Cristian Nettle
-
+#Descripcion De gramatica
+para la gramatica del lenguaje no hubo cambios significativos salvo para las funciones whiles y asignacion de variables primitivas las cuales se mostraran a continuacion
 
 
 Compilador Utilizando ply
-
+#Analisis Lexico
 #Funciones booleanas 
   condicionales:
   if  
