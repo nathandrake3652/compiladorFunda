@@ -7,8 +7,7 @@ Proyecto Compilador - Piton1.1
     - Francisco Astudillo 
     - Cristian Nettle
 
-
-#Descripcion De gramatica
+# Descripcion De gramatica
 para la gramatica del lenguaje no hubo cambios significativos salvo para las funciones whiles y asignacion de variables primitivas las cuales se mostraran a continuacion
 
 
